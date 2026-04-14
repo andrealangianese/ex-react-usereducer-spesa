@@ -39,6 +39,8 @@ export default function app() {
         )
     }
 
+    const totaleToPay = addedProducts.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
     return (
         <>
             <h2>miei prodotti</h2>
@@ -57,6 +59,9 @@ export default function app() {
                         <button onClick={() => removeFromCart(item.name)}>Rimuovi dal carrello</button>
                     </p>
                 ))}
+            </section>
+            <section>
+                <h3>totale da pagare: {totaleToPay.toFixed(2)}€</h3>
             </section>
         </>
     )
